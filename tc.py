@@ -76,8 +76,8 @@ def create_features(processed_tweets, rare_words):
                 vocab.add(term)
                 doc.append(term)
         docs.append(" ".join(doc))
-    model = sklearn.feature_extraction.text.TfidfVectorizer(vocabulary=vocab)
-    return model, model.fit_transform(docs)
+    model = sklearn.feature_extraction.text.TfidfVectorizer(vocabulary=vocab).fit(docs)
+    return model, model.transform(docs)
 
 
 def get_label(name, label_set):
